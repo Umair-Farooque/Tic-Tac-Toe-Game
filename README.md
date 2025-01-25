@@ -1,32 +1,62 @@
-# Tic-Tac-Toe with Mini-Max Algorithm
-This repository contains two implementations of a Tic-Tac-Toe game where one uses the basic Mini-Max algorithm and the other improves upon it by optimizing the time complexity with Alpha-Beta pruning.
+# Tic Tac Toe
 
-Features
-Single-player mode (Player vs Computer).
-Multiplayer mode (Player vs Player).
-AI powered by the Mini-Max algorithm for optimal gameplay.
-Improved AI with Alpha-Beta pruning for faster computation.
-Files
-Basic Mini-Max Implementation: The initial implementation of the Mini-Max algorithm to evaluate the game tree for the AI's moves.
-Optimized Mini-Max with Alpha-Beta Pruning: An improved version of the Mini-Max algorithm that reduces the number of game states evaluated.
-How It Works
-Mini-Max Algorithm
-The Mini-Max algorithm is a decision-making algorithm used in game theory. It evaluates the possible moves in the game to determine the optimal move for the computer.
+This project is a Python implementation of the classic Tic Tac Toe game, utilizing the MiniMax algorithm for optimal decision-making. The program supports both single-player mode (against the computer) and two-player mode. It also includes an optimized version of the MiniMax algorithm with alpha-beta pruning.
 
-Alpha-Beta Pruning
-Alpha-Beta pruning is an optimization of the Mini-Max algorithm. It reduces the number of nodes evaluated in the search tree, significantly improving performance without sacrificing accuracy.
+## Features
+- **Single-player Mode**: Play against a computer that uses the MiniMax algorithm to determine its moves.
+- **Two-player Mode**: Play with a friend on the same system.
+- **Dynamic Board Rendering**: Displays the current state of the board after each move.
+- **Optimal Moves**: The computer always makes the best possible move using the MiniMax algorithm.
 
-Usage
-Clone the repository.
-Run the file Tic Tac Toe.ipynb in a Jupyter Notebook environment.
-Follow the prompts to select the game mode:
-Single-player (Computer vs Player).
-Multiplayer (Player vs Player).
-![image](https://github.com/user-attachments/assets/71246a22-030a-423b-9fc0-95802d9ed1ab)
+## Complexity
+- **Original MiniMax**: O(b^d), where `b` is the branching factor and `d` is the depth of the game tree.
+- **Optimized MiniMax with Alpha-Beta Pruning**: O(b^(d/2)), significantly reducing the computational complexity.
 
-Example
-Player inputs positions as numbers between 1–9.
-The game displays the board after each move.
-The AI calculates the optimal move using the chosen algorithm.
-Contributing
-Feel free to open issues or submit pull requests for bug fixes or feature enhancements.
+## How to Use
+1. Clone this repository or download the script.
+2. Run the Python script in a terminal or Jupyter Notebook.
+3. Follow the prompts to choose single-player or two-player mode:
+   - For single-player mode, select whether to play first or second.
+   - For two-player mode, players take turns entering their moves.
+
+## Game Rules
+- The board is represented as a 3x3 grid:
+  ```
+  1 | 2 | 3
+  ---------
+  4 | 5 | 6
+  ---------
+  7 | 8 | 9
+  ```
+- Player `X` and Player `O` alternate turns.
+- To make a move, enter the position (1-9) where you want to place your mark.
+- The game ends when one player achieves three marks in a row (horizontally, vertically, or diagonally) or when the board is full (draw).
+
+## File Contents
+- **`ConstBoard(board)`**: Displays the current state of the board.
+- **`User1Turn(board)`** and **`User2Turn(board)`**: Handle player inputs and update the board.
+- **`minimax(board, player)`**: Implements the MiniMax algorithm.
+- **`CompTurn(board)`**: Determines the computer's move using MiniMax.
+- **`analyzeboard(board)`**: Evaluates the current board state to check for a winner.
+- **`main()`**: Main function that initializes the game and handles the game loop.
+
+## Example Gameplay
+```text
+Enter 1 for single player, 2 for multiplayer: 1
+Computer : O Vs. You : X
+Enter to play 1(st) or 2(nd): 1
+Current State Of Board:
+
+-  -  -
+-  -  -
+-  -  -
+
+Enter X's position from [1...9]: 5
+```
+
+## Requirements
+- Python 3.x
+
+## License
+This project is licensed under the MIT License. Feel free to use, modify, and distribute the code.
+
